@@ -60,6 +60,7 @@ extern "C" {
 #define ULP_LOCATION_IS_FROM_ZPP 0x0004
 
 #define ULP_MIN_INTERVAL_INVALID 0xffffffff
+#define ULP_MAX_NMEA_STRING_SIZE 201
 
 
 typedef struct {
@@ -72,6 +73,13 @@ typedef struct {
     int             rawDataSize;         /* in # of bytes */
     void            * rawData;
 } UlpLocation;
+
+typedef struct {
+    /** set to sizeof(UlpNmea) */
+    size_t          size;
+    char            nmea_str[ULP_MAX_NMEA_STRING_SIZE];
+    unsigned int    len;
+} UlpNmea;
 
 /** AGPS type */
 typedef int16_t AGpsExtType;
