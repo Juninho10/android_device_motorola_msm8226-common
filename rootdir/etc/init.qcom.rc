@@ -155,9 +155,7 @@ on post-fs-data
     #Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
 
-    # Create /data/time folder for time-services
-    mkdir /data/time/ 0700 system system
-    symlink /data/time /data/vendor/time
+    #symlink /data/time /data/vendor/time
 
     mkdir /data/audio/ 0770 media audio
     # Enable the setgid bit on the directory
@@ -573,12 +571,6 @@ service thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-
     class main
     user root
     group root
-
-service time_daemon /vendor/bin/time_daemon
-    capabilities SYS_TIME
-    class late_start
-    user system
-    group net_raw
 
 service wcnss-service /vendor/bin/wcnss_service
     class late_start

@@ -145,23 +145,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Dalvik properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=16m \
-    dalvik.vm.heapgrowthlimit=192m \
-    dalvik.vm.heapsize=256m \
-    dalvik.vm.heaptargetutilization=0.75 \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapmaxfree=8m
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    pm.dexopt.shared=quicken \
-    pm.dexopt.downgrade_after_inactive_days=10
-
-# DeviceSettings
-#PRODUCT_PACKAGES += \
-#    DeviceSettings
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -182,7 +165,6 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.start_graphics_allocator_service=true
 
 # Ebtables
@@ -233,15 +215,6 @@ PRODUCT_DISABLE_SCUDO := true
 # use the go specific handheld_core_hardware.xml from frameworks
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/go_handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
-
-# Set lowram options
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.traced.enable=1 \
-    ro.lmk.critical_upgrade=true \
-    ro.lmk.upgrade_pressure=40 \
-    ro.lmk.downgrade_pressure=60 \
-    ro.lmk.kill_heaviest_task=false \
-    ro.statsd.enable=true
 
 # Health
 PRODUCT_PACKAGES += \
@@ -323,6 +296,11 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.safailnet.rc \
     ueventd.qcom.rc
+
+# TimeKeep
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

@@ -286,7 +286,6 @@
          proportionally to the smaller buckets. -1 keeps the default. -->
     <integer name="config_lowMemoryKillerMinFreeKbytesAbsolute">81920</integer>
 
-    <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">true</bool>
 
     <!-- Values for GPS configuration -->
@@ -389,25 +388,6 @@
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
     <integer translatable="false" name="config_wifi_supplicant_scan_interval">40000</integer>
 
-    <!-- Default list of files pinned by the Pinner Service -->
-    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-        <item>"/system/framework/arm/boot-framework.oat"</item>
-        <item>"/system/framework/framework.jar"</item>
-        <item>"/system/framework/oat/arm/services.odex"</item>
-        <item>"/system/framework/services.jar"</item>
-        <item>"/system/framework/arm/boot.oat"</item>
-        <item>"/system/framework/arm/boot-core-libart.oat"</item>
-        <item>"/system/framework/boot-core-libart.vdex"</item>
-        <item>"/system/priv-app/SystemUI/SystemUI.apk"</item>
-        <item>"/product/priv-app/SystemUI/oat/arm/SystemUI.odex"</item>
-        <item>"/data/dalvik-cache/arm/system@product@priv-app@SystemUI@SystemUI.apk@classes.dex"</item>
-        <item>"/data/dalvik-cache/arm/system@product@priv-app@SystemUI@SystemUI.apk@classes.vdex"</item>
-        <item>"/apex/com.android.runtime/javalib/core-oj.jar"</item>
-        <item>"/apex/com.android.runtime/javalib/core-libart.jar"</item>
-        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
-        <item>"/system/lib/libsurfaceflinger.so"</item>
-    </string-array>
-
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <bool name="config_allowMediaUidForCameraServiceProxy">true</bool>
 
@@ -435,4 +415,8 @@
     <string-array name="config_ephemeralResolverPackage">
         <item>com.google.android.gms</item>
     </string-array>
+
+   <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
+        true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
+    <bool name="config_useSystemClockforRotationSensor">true</bool>
 </resources>
