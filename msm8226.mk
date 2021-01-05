@@ -18,9 +18,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product, vendor/motorola/msm8226-common/msm8226-common-vendor.mk)
 
-ifeq ($(GO_BUILD),true)
-    $(call inherit-product, build/target/product/go_defaults.mk)
-endif
+# Build as Go device
+$(call inherit-product, build/target/product/go_defaults.mk)
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
