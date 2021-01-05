@@ -184,6 +184,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
     gps.msm8226
 
 # Speed profile services and wifi-service to reduce RAM and storage.
